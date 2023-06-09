@@ -38,3 +38,38 @@ If your scripts are dependent on each other better to use defer bcse it preserve
    useCapture in addeventlistener should be true
 We can use a mix of true/false accordingly events will be triggered
 We can stop event propagation by using e.StopPropagation() , bcse event propagation is expensive
+
+Event Delegation: Based on event bubbling Lets say we have list of cards, 
+instead of attaching event handlers to each of them , we can attach a single event handler to its parent. 
+so when a child is clicked the event is handled by its parent through event bubbling.
+e.target gives you the element eg: redirecting based on card clicked, 
+In a form where you want all the input fields to be filled with uppercase. 
+Pros: Saves memory by reducing the number of event handlers Mitigates the risk of performance bottleneck less code DOM Manipulation becomes smooth Cons: 
+Some event's do not bubble up We should keep an eye on stop Propagation, in case you need event bubble up
+
+Debouncing (prevents extra activations or slow functions from triggering too often. ):
+This concept is used for performance optimization. Optimising search intervals 
+This can be achieved using setTimeout getData() will get you the search results ,
+but call this function with a delay of certain intervals using setTimeOut. 
+If a key stroke occurs between that time interval we should clear that timer.
+
+Throttling(to hold something / somebody) Throttling will delay the fun call on click event for next x duration. 
+This will return a function that throttles your function call on event. 
+We will have a flag , only when the flag, Once the function is called flag= false 
+,it will be true after some duration of time. Handle argumnets using: context = this, args=arguments
+
+Debouncing vs Throttlling : In Debouncing, we are setting and clearing the timer on each key event; 
+Restart timer on every event. In Throttling, function will be called only after the time interval,
+between that interval no function call will happen;
+function call and timer set will after after certain interval only;
+This will just ignore all the events in between.
+
+Built in functions for objects and function comes from prototype ,
+ whcich has all those built in functions and methods
+ Everything in js is an object 
+ arr.__proto__
+
+ Function.prototype.mybind = function (){
+
+ }
+ Now we will have access to mybind mehtod from all functions
